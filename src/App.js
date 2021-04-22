@@ -1,12 +1,12 @@
-import { useEffect, useState } from "react";
 import queryString from "query-string";
+import { useEffect, useState } from "react";
+import { v4 as uuidv4 } from "uuid";
 import "./App.scss";
 import ColorBox from "./components/ColorBox";
+import Pagination from "./components/Pagination";
+import PostList from "./components/PostList";
 import TodoForm from "./components/TodoForm";
 import TodoList from "./components/TodoList";
-import { v4 as uuidv4 } from "uuid";
-import PostList from "./components/PostList";
-import Pagination from "./components/Pagination";
 const initialState = [
 	{ id: 1, title: "I love Easy FrontEnd!" },
 	{ id: 2, title: "We love Easy FrontEnd!" },
@@ -67,6 +67,7 @@ function App() {
 			_page: newPage,
 		});
 	}
+
 	return (
 		<div className="App">
 			<h2>Color box change</h2>
@@ -75,6 +76,7 @@ function App() {
 			<TodoForm onSubmit={handleTodoFormSubmit} />
 			<TodoList todos={todos} onTodoClick={handleTodoClick} />
 			<h2>Post List (Fetch data from api)</h2>
+
 			<PostList posts={postList} />
 			<Pagination pagination={pagination} onPageChange={handlePageChange} />
 		</div>
